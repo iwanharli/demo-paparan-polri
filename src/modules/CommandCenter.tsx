@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TrendingUp, AlertTriangle, Activity, MapPin, MessageSquare, Share2, Zap } from 'lucide-react';
+import { TrendingUp, AlertTriangle, Activity, MapPin, MessageSquare } from 'lucide-react';
 import { IndonesiaMap } from '../components/IndonesiaMap';
 import { 
   PROVINSI, 
@@ -8,9 +8,7 @@ import {
   TREN_LABELS,
   INCIDENTS,
   TICKERS,
-  RISK_METER_DATA,
-  NARASI_VIRAL,
-  EMOTION_DATA
+  RISK_METER_DATA
 } from '../data/dashboardData';
 import { 
   XAxis, 
