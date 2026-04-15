@@ -19,7 +19,7 @@ export function DataBencana({ openModal }: DataBencanaProps) {
 
   const bencanaData = BENCANA_HISTORI[histProv] || BENCANA_HISTORI.nasional;
   const peringatanData = PERINGATAN_DATA[pdFilter] || PERINGATAN_DATA.all;
-  const predData = PRED_BENCANA[predFilter] || PRED_BENCANA.sulteng;
+  const predData = PRED_BENCANA[predFilter] || PRED_BENCANA['sulawesi tengah'];
   
   const kerentananFiltered = kerenFilter === 'all' 
     ? KERENTANAN_DATA 
@@ -126,10 +126,10 @@ export function DataBencana({ openModal }: DataBencanaProps) {
               onChange={(e) => setHistProv(e.target.value)}
             >
               <option value="nasional">Nasional</option>
-              <option value="jatim">Jawa Timur</option>
-              <option value="sulteng">Sulawesi Tengah</option>
-              <option value="ntt">NTT</option>
-              <option value="kalsel">Kalimantan Selatan</option>
+              <option value="jawa timur">Jawa Timur</option>
+              <option value="sulawesi tengah">Sulawesi Tengah</option>
+              <option value="nusa tenggara timur">NTT</option>
+              <option value="kalimantan selatan">Kalimantan Selatan</option>
             </select>
           </div>
           
@@ -255,10 +255,10 @@ export function DataBencana({ openModal }: DataBencanaProps) {
               onChange={(e) => setPdFilter(e.target.value)}
             >
               <option value="all">Semua Wilayah</option>
-              <option value="sulteng">Sulawesi Tengah</option>
-              <option value="ntt">NTT</option>
-              <option value="kalsel">Kalimantan Selatan</option>
-              <option value="jatim">Jawa Timur</option>
+              <option value="sulawesi tengah">Sulawesi Tengah</option>
+              <option value="nusa tenggara timur">NTT</option>
+              <option value="kalimantan selatan">Kalimantan Selatan</option>
+              <option value="jawa timur">Jawa Timur</option>
             </select>
           </div>
           
@@ -307,11 +307,11 @@ export function DataBencana({ openModal }: DataBencanaProps) {
               value={predFilter}
               onChange={(e) => setPredFilter(e.target.value)}
             >
-              <option value="sulteng">Sulawesi Tengah</option>
-              <option value="ntt">NTT</option>
-              <option value="kalsel">Kalimantan Selatan</option>
-              <option value="jatim">Jawa Timur</option>
-              <option value="dki">DKI Jakarta</option>
+              <option value="sulawesi tengah">Sulawesi Tengah</option>
+              <option value="nusa tenggara timur">NTT</option>
+              <option value="kalimantan selatan">Kalimantan Selatan</option>
+              <option value="jawa timur">Jawa Timur</option>
+              <option value="dki jakarta">DKI Jakarta</option>
             </select>
           </div>
           

@@ -10,40 +10,45 @@ export interface Provinsi {
 
 export const PROVINSI: Provinsi[] = [
   { n: 'Aceh', s: 'normal', pop: '5.3M', gini: 0.31 },
-  { n: 'Sumut', s: 'siaga', pop: '14.5M', gini: 0.34 },
-  { n: 'Sumbar', s: 'normal', pop: '5.5M', gini: 0.30 },
+  { n: 'Sumatera Utara', s: 'siaga', pop: '14.5M', gini: 0.34 },
+  { n: 'Sumatera Barat', s: 'normal', pop: '5.5M', gini: 0.30 },
   { n: 'Riau', s: 'siaga', pop: '6.8M', gini: 0.36 },
-  { n: 'Kepri', s: 'normal', pop: '2.1M', gini: 0.33 },
+  { n: 'Kepulauan Riau', s: 'normal', pop: '2.1M', gini: 0.33 },
   { n: 'Jambi', s: 'normal', pop: '3.6M', gini: 0.32 },
-  { n: 'Babel', s: 'normal', pop: '1.5M', gini: 0.29 },
-  { n: 'Sumsel', s: 'siaga', pop: '8.7M', gini: 0.35 },
+  { n: 'Kepulauan Bangka Belitung', s: 'normal', pop: '1.5M', gini: 0.29 },
+  { n: 'Sumatera Selatan', s: 'siaga', pop: '8.7M', gini: 0.35 },
   { n: 'Bengkulu', s: 'normal', pop: '2.0M', gini: 0.30 },
   { n: 'Lampung', s: 'siaga', pop: '9.2M', gini: 0.34 },
   { n: 'Banten', s: 'siaga', pop: '13.1M', gini: 0.38 },
-  { n: 'DKI', s: 'kritis', pop: '10.6M', gini: 0.41 },
-  { n: 'Jabar', s: 'kritis', pop: '49.3M', gini: 0.40 },
-  { n: 'Jateng', s: 'siaga', pop: '37.0M', gini: 0.36 },
-  { n: 'DIY', s: 'normal', pop: '3.8M', gini: 0.42 },
-  { n: 'Jatim', s: 'kritis', pop: '40.5M', gini: 0.37 },
-  { n: 'Kalbar', s: 'normal', pop: '5.5M', gini: 0.33 },
-  { n: 'Kalteng', s: 'normal', pop: '2.7M', gini: 0.31 },
-  { n: 'Kalsel', s: 'siaga', pop: '4.3M', gini: 0.35 },
-  { n: 'Kaltim', s: 'normal', pop: '3.8M', gini: 0.34 },
-  { n: 'Kaltara', s: 'normal', pop: '0.7M', gini: 0.31 },
-  { n: 'Sulut', s: 'normal', pop: '2.6M', gini: 0.36 },
+  { n: 'DKI Jakarta', s: 'kritis', pop: '10.6M', gini: 0.41 },
+  { n: 'Jawa Barat', s: 'kritis', pop: '49.3M', gini: 0.40 },
+  { n: 'Jawa Tengah', s: 'siaga', pop: '37.0M', gini: 0.36 },
+  { n: 'Daerah Istimewa Yogyakarta', s: 'normal', pop: '3.8M', gini: 0.42 },
+  { n: 'Jawa Timur', s: 'kritis', pop: '40.5M', gini: 0.37 },
+  { n: 'Kalimantan Barat', s: 'normal', pop: '5.5M', gini: 0.33 },
+  { n: 'Kalimantan Tengah', s: 'normal', pop: '2.7M', gini: 0.31 },
+  { n: 'Kalimantan Selatan', s: 'siaga', pop: '4.3M', gini: 0.35 },
+  { n: 'Kalimantan Timur', s: 'normal', pop: '3.8M', gini: 0.34 },
+  { n: 'Kalimantan Utara', s: 'normal', pop: '0.7M', gini: 0.31 },
+  { n: 'Sulawesi Utara', s: 'normal', pop: '2.6M', gini: 0.36 },
   { n: 'Gorontalo', s: 'normal', pop: '1.2M', gini: 0.33 },
-  { n: 'Sulteng', s: 'kritis', pop: '3.1M', gini: 0.34 },
-  { n: 'Sulbar', s: 'siaga', pop: '1.4M', gini: 0.36 },
-  { n: 'Sulsel', s: 'siaga', pop: '9.1M', gini: 0.38 },
-  { n: 'Sultra', s: 'normal', pop: '2.7M', gini: 0.35 },
-  { n: 'Malut', s: 'normal', pop: '1.3M', gini: 0.32 },
+  { n: 'Sulawesi Tengah', s: 'kritis', pop: '3.1M', gini: 0.34 },
+  { n: 'Sulawesi Barat', s: 'siaga', pop: '1.4M', gini: 0.36 },
+  { n: 'Sulawesi Selatan', s: 'siaga', pop: '9.1M', gini: 0.38 },
+  { n: 'Sulawesi Tenggara', s: 'normal', pop: '2.7M', gini: 0.35 },
+  { n: 'Maluku Utara', s: 'normal', pop: '1.3M', gini: 0.32 },
   { n: 'Maluku', s: 'normal', pop: '1.9M', gini: 0.31 },
   { n: 'Bali', s: 'normal', pop: '4.3M', gini: 0.38 },
-  { n: 'NTB', s: 'siaga', pop: '5.4M', gini: 0.37 },
-  { n: 'NTT', s: 'siaga', pop: '5.8M', gini: 0.36 },
+  { n: 'Nusa Tenggara Barat', s: 'siaga', pop: '5.4M', gini: 0.37 },
+  { n: 'Nusa Tenggara Timur', s: 'siaga', pop: '5.8M', gini: 0.36 },
   { n: 'Papua', s: 'siaga', pop: '4.4M', gini: 0.40 },
-  { n: 'Pabar', s: 'normal', pop: '1.1M', gini: 0.33 },
+  { n: 'Papua Barat', s: 'normal', pop: '1.1M', gini: 0.33 },
+  { n: 'Papua Tengah', s: 'siaga', pop: '1.4M', gini: 0.38 },
+  { n: 'Papua Selatan', s: 'normal', pop: '0.5M', gini: 0.36 },
+  { n: 'Papua Pegunungan', s: 'siaga', pop: '1.4M', gini: 0.39 },
+  { n: 'Papua Barat Daya', s: 'normal', pop: '0.6M', gini: 0.33 },
 ];
+
 
 export interface ProvDetail {
   score: number;
@@ -51,7 +56,7 @@ export interface ProvDetail {
 }
 
 export const PROV_DETAILS: Record<string, ProvDetail> = {
-  'DKI': { 
+  'DKI Jakarta': { 
     score: 78, 
     alasan: [
       'Inflasi 5.2% — tertinggi nasional',
@@ -60,7 +65,7 @@ export const PROV_DETAILS: Record<string, ProvDetail> = {
       'Rawan unjuk rasa buruh dan pelajar'
     ]
   },
-  'Jatim': { 
+  'Jawa Timur': { 
     score: 81, 
     alasan: [
       'Indeks kerawanan tertinggi nasional',
@@ -69,7 +74,7 @@ export const PROV_DETAILS: Record<string, ProvDetail> = {
       'Unjuk rasa massa terdeteksi 248 post/jam'
     ]
   },
-  'Jabar': { 
+  'Jawa Barat': { 
     score: 66, 
     alasan: [
       'Kepadatan penduduk tertinggi',
@@ -78,7 +83,7 @@ export const PROV_DETAILS: Record<string, ProvDetail> = {
       'Tingkat kemiskinan 9.8%'
     ]
   },
-  'Sulteng': { 
+  'Sulawesi Tengah': { 
     score: 71, 
     alasan: [
       'Peringatan cuaca ekstrem aktif BMKG',
@@ -87,7 +92,7 @@ export const PROV_DETAILS: Record<string, ProvDetail> = {
       'Potensi bencana hidrometeorologi 78%'
     ]
   },
-  'Jateng': { 
+  'Jawa Tengah': { 
     score: 55, 
     alasan: [
       'Inflasi 3.8% — terkendali',
@@ -102,11 +107,11 @@ export const PROV_DETAILS: Record<string, ProvDetail> = {
 // ════════════════════════════════════════════════════════
 export const TREN_DATA: Record<string, number[]> = {
   nasional: [42, 58, 51, 69, 75, 61, 73],
-  dki: [52, 65, 60, 78, 82, 71, 79],
-  jatim: [55, 70, 64, 81, 85, 75, 84],
-  jabar: [38, 52, 47, 60, 65, 55, 62],
-  sulteng: [45, 58, 52, 70, 73, 62, 70],
-  sulsel: [30, 40, 36, 50, 54, 45, 52],
+  'dki jakarta': [52, 65, 60, 78, 82, 71, 79],
+  'jawa timur': [55, 70, 64, 81, 85, 75, 84],
+  'jawa barat': [38, 52, 47, 60, 65, 55, 62],
+  'sulawesi tengah': [45, 58, 52, 70, 73, 62, 70],
+  'sulawesi selatan': [30, 40, 36, 50, 54, 45, 52],
 };
 
 export const TREN_LABELS = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
@@ -142,7 +147,7 @@ export const KOMODITAS_DATA: Record<string, KomoditasItem[]> = {
     { k: '🐟 Ikan Bandeng', h: 30000, het: 30000, delta: 0 },
     { k: '🍬 Gula Pasir', h: 19000, het: 17000, delta: 3 },
   ],
-  jatim: [
+  'jawa timur': [
     { k: '🌶 Cabai Merah', h: 65000, het: 48000, delta: 6 },
     { k: '🧅 Bawang Merah', h: 40000, het: 36000, delta: 4 },
     { k: '🍚 Beras Premium', h: 15800, het: 14000, delta: 1 },
@@ -155,7 +160,7 @@ export const KOMODITAS_DATA: Record<string, KomoditasItem[]> = {
 };
 
 // Fill missing provinces with nasional data
-['jabar', 'sulteng', 'sulsel', 'sumut'].forEach(k => {
+['jawa barat', 'sulawesi tengah', 'sulawesi selatan', 'sumatera utara'].forEach(k => {
   KOMODITAS_DATA[k] = KOMODITAS_DATA.nasional;
 });
 
@@ -249,7 +254,7 @@ export const PREDIKTIF_DATA: Record<string, PrediktifData> = {
   },
 };
 
-['jatim', 'jabar', 'sulteng', 'sulsel', 'sumut'].forEach(k => {
+['jawa timur', 'jawa barat', 'sulawesi tengah', 'sulawesi selatan', 'sumatera utara'].forEach(k => {
   PREDIKTIF_DATA[k] = PREDIKTIF_DATA.nasional;
 });
 
@@ -271,22 +276,22 @@ export const BENCANA_HISTORI: Record<string, BencanaItem[]> = {
     { e: '🌊 Gelombang Tinggi', n: 167, pct: 35, c: 'rgba(0,238,255,.4)' },
     { e: '🏔 Gempa Bumi', n: 99, pct: 22, c: 'rgba(255,45,85,.5)' },
   ],
-  jatim: [
+  'jawa timur': [
     { e: '🌊 Banjir', n: 87, pct: 90, c: 'rgba(10,132,255,.55)' },
     { e: '🌪 Puting Beliung', n: 54, pct: 60, c: 'rgba(255,214,0,.5)' },
     { e: '🌋 Tanah Longsor', n: 42, pct: 45, c: 'rgba(255,107,0,.55)' },
   ],
-  sulteng: [
+  'sulawesi tengah': [
     { e: '🏔 Gempa Bumi', n: 38, pct: 80, c: 'rgba(255,45,85,.5)' },
     { e: '🌊 Tsunami', n: 12, pct: 25, c: 'rgba(0,238,255,.4)' },
     { e: '🌊 Banjir', n: 28, pct: 60, c: 'rgba(10,132,255,.55)' },
   ],
-  ntt: [
+  'nusa tenggara timur': [
     { e: '🌪 Angin Kencang', n: 62, pct: 75, c: 'rgba(255,214,0,.5)' },
     { e: '🌊 Banjir', n: 35, pct: 45, c: 'rgba(10,132,255,.55)' },
     { e: '🌋 Tanah Longsor', n: 22, pct: 28, c: 'rgba(255,107,0,.55)' },
   ],
-  kalsel: [
+  'kalimantan selatan': [
     { e: '🌊 Banjir', n: 74, pct: 95, c: 'rgba(10,132,255,.55)' },
     { e: '🌊 Banjir Rob', n: 28, pct: 35, c: 'rgba(0,238,255,.4)' },
   ],
@@ -302,20 +307,20 @@ export interface PeringatanItem {
 export const PERINGATAN_DATA: Record<string, PeringatanItem[]> = {
   all: [
     { j: 'Cuaca Ekstrem', w: 'Sulawesi Tengah', detail: 'Hujan Lebat + Angin Kencang · 18–20 Okt', s: 'kritis' },
-    { j: 'Potensi Gempa', w: 'NTT', detail: 'Aktivitas Seismik ≥5.0 SR · Monitoring', s: 'siaga' },
+    { j: 'Potensi Gempa', w: 'Nusa Tenggara Timur', detail: 'Aktivitas Seismik ≥5.0 SR · Monitoring', s: 'siaga' },
     { j: 'Banjir Rob', w: 'Kalimantan Selatan', detail: 'Pasang Tinggi + Hujan · 72 Jam', s: 'siaga' },
     { j: 'Gelombang Tinggi', w: 'Jawa Timur', detail: 'Tinggi Gelombang 3-4m · 48 Jam', s: 'siaga' },
   ],
-  sulteng: [
+  'sulawesi tengah': [
     { j: 'Cuaca Ekstrem', w: 'Sulawesi Tengah', detail: 'Hujan Lebat + Angin Kencang · 18-20 Okt', s: 'kritis' },
   ],
-  ntt: [
-    { j: 'Potensi Gempa', w: 'NTT', detail: 'Aktivitas Seismik ≥5.0 SR · Monitoring', s: 'siaga' },
+  'nusa tenggara timur': [
+    { j: 'Potensi Gempa', w: 'Nusa Tenggara Timur', detail: 'Aktivitas Seismik ≥5.0 SR · Monitoring', s: 'siaga' },
   ],
-  kalsel: [
+  'kalimantan selatan': [
     { j: 'Banjir Rob', w: 'Kalimantan Selatan', detail: 'Pasang Tinggi + Hujan · 72 Jam', s: 'siaga' },
   ],
-  jatim: [
+  'jawa timur': [
     { j: 'Gelombang Tinggi', w: 'Jawa Timur', detail: 'Tinggi Gelombang 3-4m · 48 Jam', s: 'siaga' },
   ],
 };
@@ -327,16 +332,16 @@ export interface PredBencana {
 }
 
 export const PRED_BENCANA: Record<string, PredBencana> = {
-  sulteng: {
+  'sulawesi tengah': {
     pct: 78,
     txt: 'Probabilitas bencana hidrometeorologi 78% dalam 7 hari. Rekomendasi: Aktifkan Satgas Evakuasi, siagakan logistik bantuan, koordinasi Pemda. Titik rawan: Palu, Donggala, Morowali.',
     aksi: [
       'Pra-posisi tim SAR di 3 titik strategis.',
       'Evakuasi mandiri wilayah pesisir rawan.',
-      'Koordinasi BNPB untuk dropping logistik.',
+      'Koordinasi BNPB for dropping logistik.',
     ],
   },
-  ntt: {
+  'nusa tenggara timur': {
     pct: 55,
     txt: 'Probabilitas gempa >M5 dan angin kencang 55%. Rekomendasi: Edukasi masyarakat prosedur evakuasi, cek kesiapan sarana evakuasi.',
     aksi: [
@@ -344,23 +349,23 @@ export const PRED_BENCANA: Record<string, PredBencana> = {
       'Inspeksi bangunan publik rawan gempa.',
     ],
   },
-  kalsel: {
+  'kalimantan selatan': {
     pct: 68,
     txt: 'Probabilitas banjir besar 68% akibat kombinasi hujan tinggi dan banjir rob. Rekomendasikan kesiapan pengungsian.',
     aksi: [
       'Siapkan titik pengungsian di dataran tinggi.',
-      'Koordinasi BPBD untuk pompa air darurat.',
+      'Koordinasi BPBD for pompa air darurat.',
     ],
   },
-  jatim: {
+  'jawa timur': {
     pct: 42,
     txt: 'Probabilitas gelombang tinggi 42% berpotensi ganggu nelayan dan jalur pelayaran.',
     aksi: [
       'Larangan melaut kapal kecil 24-48 jam.',
-      'Koordinasi Basarnas untuk standby rescue.',
+      'Koordinasi Basarnas for standby rescue.',
     ],
   },
-  dki: {
+  'dki jakarta': {
     pct: 25,
     txt: 'Risiko bencana alam DKI relatif rendah. Perhatikan potensi banjir kiriman dari Bogor.',
     aksi: [
@@ -385,17 +390,17 @@ export const ISU_DATA: Record<string, IsuData> = {
     med: ['#OpsiBantuan', '#KorupsiDaerah', '#PilkadaJatim', '#SentimensiPolri'],
     low: ['#CuacaEkstrem', '#BantuanSosial', '#Pariwisata'],
   },
-  dki: {
+  'dki jakarta': {
     high: ['#BuruhMarchDKI', '#HargaBahanPokok', '#OperasiPasarDarurat'],
     med: ['#TransjakartaMacet', '#PemrovDKI'],
     low: ['#EventJakarta', '#WisataDKI'],
   },
-  jatim: {
+  'jawa timur': {
     high: ['#DemoSurabaya', '#BuruhPHKJatim', '#Cabai68Ribu'],
     med: ['#PilwaliSurabaya', '#NarkobaJatim'],
     low: ['#EkonomiJatim', '#WisataJatim'],
   },
-  sulteng: {
+  'sulawesi tengah': {
     high: ['#GempaSulteng', '#PaluBanjir', '#EvakuasiPalu'],
     med: ['#RekonstrSulteng', '#BantuanBencana'],
     low: ['#WisataSulteng'],
@@ -419,28 +424,28 @@ export const KAM_DIM_DATA: Record<string, KamDimItem[]> = {
     { n: 'Narkotika', v: 58, c: 'rgba(255,214,0,.65)' },
     { n: 'Kejahatan Siber', v: 67, c: 'rgba(255,107,0,.65)' },
   ],
-  jatim: [
+  'jawa timur': [
     { n: 'Kriminalitas', v: 79, c: 'rgba(255,45,85,.7)' },
     { n: 'Konflik Sosial', v: 85, c: 'rgba(255,45,85,.85)' },
     { n: 'Radikalisme', v: 40, c: 'rgba(255,214,0,.6)' },
     { n: 'Narkotika', v: 65, c: 'rgba(255,214,0,.65)' },
     { n: 'Kejahatan Siber', v: 55, c: 'rgba(255,107,0,.6)' },
   ],
-  dki: [
+  'dki jakarta': [
     { n: 'Kriminalitas', v: 76, c: 'rgba(255,45,85,.7)' },
     { n: 'Konflik Sosial', v: 82, c: 'rgba(255,45,85,.8)' },
     { n: 'Radikalisme', v: 30, c: 'rgba(0,255,157,.55)' },
     { n: 'Narkotika', v: 70, c: 'rgba(255,107,0,.7)' },
     { n: 'Kejahatan Siber', v: 75, c: 'rgba(255,45,85,.6)' },
   ],
-  sulteng: [
+  'sulawesi tengah': [
     { n: 'Kriminalitas', v: 68, c: 'rgba(255,214,0,.65)' },
     { n: 'Konflik Sosial', v: 74, c: 'rgba(255,45,85,.7)' },
     { n: 'Radikalisme', v: 45, c: 'rgba(255,214,0,.55)' },
     { n: 'Narkotika', v: 42, c: 'rgba(0,238,255,.5)' },
     { n: 'Kejahatan Siber', v: 38, c: 'rgba(0,255,157,.5)' },
   ],
-  jabar: [
+  'jawa barat': [
     { n: 'Kriminalitas', v: 65, c: 'rgba(255,214,0,.65)' },
     { n: 'Konflik Sosial', v: 70, c: 'rgba(255,45,85,.65)' },
     { n: 'Radikalisme', v: 38, c: 'rgba(0,255,157,.55)' },
@@ -461,11 +466,11 @@ export interface KerentananItem {
 
 export const KERENTANAN_DATA: KerentananItem[] = [
   { prov: 'Sulawesi Tengah', skor: 82, status: 'kritis', alasan: 'Aktivitas seismik tinggi, akses terbatas, histori tsunami' },
-  { prov: 'NTT', skor: 78, status: 'kritis', alasan: 'Rawan angin kencang, kemiskinan tinggi, minim infrastruktur' },
+  { prov: 'Nusa Tenggara Timur', skor: 78, status: 'kritis', alasan: 'Rawan angin kencang, kemiskinan tinggi, minim infrastruktur' },
   { prov: 'Kalimantan Selatan', skor: 74, status: 'waspada', alasan: 'Rawan banjir musiman, tutupan lahan berkurang' },
   { prov: 'Jawa Timur', skor: 68, status: 'waspada', alasan: 'Kepadatan penduduk, rawan banjir dan longsor' },
   { prov: 'Papua', skor: 65, status: 'siaga', alasan: 'Akses terbatas, rawan longsor dan banjir bandang' },
-  { prov: 'NTB', skor: 61, status: 'siaga', alasan: 'Rawan gempa dan tsunami wilayah pesisir' },
+  { prov: 'Nusa Tenggara Barat', skor: 61, status: 'siaga', alasan: 'Rawan gempa dan tsunami wilayah pesisir' },
 ];
 
 // ════════════════════════════════════════════════════════
@@ -483,6 +488,16 @@ export const INCIDENTS: Incident[] = [
   { title: 'Potensi Konflik Sosial — Perumahan Warga', meta: '📍 Bandung · 06:50 · 2 Jam Lalu', color: 'var(--cr)' },
   { title: 'Kelangkaan Elpiji 3kg', meta: '📍 NTT · 06:20 · 3 Jam Lalu', color: 'var(--co)' },
   { title: 'Lonjakan Cuitan Negatif Sosmed', meta: '📍 Makassar · 05:00 · 4 Jam Lalu', color: 'var(--cy)' },
+  { title: 'Sengketa Lahan — IKN Area', meta: '📍 Kalimantan Timur · 04:30 · Klaim Ulayat', color: 'var(--co)' },
+  { title: 'Pencemaran Limbah Industri — Morowali', meta: '📍 Sulawesi Tengah · 03:15 · Protes Warga', color: 'var(--cr)' },
+  { title: 'Ketegangan Ormas — Medan Kota', meta: '📍 Sumatera Utara · 02:45 · Personil Siaga', color: 'var(--co)' },
+  { title: 'Kenaikan Harga Beras — Pasar Gede', meta: '📍 Jawa Tengah · 02:10 · Stok Menipis', color: 'var(--cy)' },
+  { title: 'Provokasi Isu SARA — Sosmed', meta: '📍 Papua · 01:50 · Counter-Narasi Aktif', color: 'var(--cr)' },
+  { title: 'Banjir Rob — Pesisir Belawan', meta: '📍 Sumatera Utara · 01:20 · Akses Terputus', color: 'var(--co)' },
+  { title: 'Laporan Pungli Parkir — Titik Nol', meta: '📍 Yogyakarta · 00:45 · Tindak Lanjut APH', color: 'var(--cy)' },
+  { title: 'Penemuan Paket Mencurigakan', meta: '📍 Batam · Kemarin · Sterilisasi Selesai', color: 'var(--cg)' },
+  { title: 'Konflik Nelayan — Perairan Natuna', meta: '📍 Kepri · Kemarin · Patroli Bakamla', color: 'var(--co)' },
+  { title: 'Aksi Solidaritas — Manado', meta: '📍 Sulawesi Utara · Kemarin · Kondusif', color: 'var(--cg)' },
 ];
 
 // ════════════════════════════════════════════════════════
@@ -564,9 +579,9 @@ export const EMOTION_DATA = [
 export const RISK_METER_DATA = [
   { n: 'Jawa Timur', v: 81, c: 'rgba(255,45,85,.7)' },
   { n: 'DKI Jakarta', v: 78, c: 'rgba(255,45,85,.65)' },
-  { n: 'Sulteng', v: 71, c: 'rgba(255,107,0,.65)' },
+  { n: 'Sulawesi Tengah', v: 71, c: 'rgba(255,107,0,.65)' },
   { n: 'Jawa Barat', v: 66, c: 'rgba(255,214,0,.65)' },
-  { n: 'Sulsel', v: 58, c: 'rgba(255,214,0,.55)' },
+  { n: 'Sulawesi Selatan', v: 58, c: 'rgba(255,214,0,.55)' },
 ];
 
 // ════════════════════════════════════════════════════════

@@ -4,6 +4,7 @@
 
 /* ── FONTS ── */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import 'leaflet/dist/leaflet.css';
 
 @layer base {
   :root {
@@ -737,7 +738,7 @@
 
 .grid-21 {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.5fr 1fr;
   gap: 11px;
   margin-bottom: 13px;
 }
@@ -754,4 +755,47 @@
   grid-template-columns: 3fr 2fr;
   gap: 11px;
   margin-bottom: 13px;
+}
+
+/* ── TACTICAL MAP STYLES ── */
+.map-container-ews {
+  height: 450px;
+  width: 100%;
+  background: rgba(0, 10, 28, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border2);
+}
+
+.leaflet-container {
+  background: transparent !important;
+  font-family: inherit;
+}
+
+.leaflet-v-glow {
+  filter: drop-shadow(0 0 8px var(--c));
+}
+
+.prov-polygon {
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.prov-polygon:hover {
+  fill-opacity: 0.8 !important;
+  stroke: var(--c) !important;
+  stroke-width: 2px !important;
+  cursor: pointer;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card) !important;
+  color: var(--tp) !important;
+  border: 1px solid var(--c) !important;
+  border-radius: 4px !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-card) !important;
 }

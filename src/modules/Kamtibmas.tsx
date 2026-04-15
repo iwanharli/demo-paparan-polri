@@ -5,6 +5,14 @@ import {
   PROV_DETAILS,
   KAM_DIM_DATA
 } from '../data/dashboardData';
+import { IndonesiaMap } from '../components/IndonesiaMap';
+import { 
+  PieChart, 
+  Pie, 
+  Cell, 
+  Tooltip, 
+  ResponsiveContainer 
+} from 'recharts';
 
 interface KamtibmasProps {
   openModal: (title: string, content: React.ReactNode) => void;
@@ -156,7 +164,7 @@ export function Kamtibmas({ openModal }: KamtibmasProps) {
       </div>
 
       {/* Row 2 */}
-      <div className="grid-2">
+      <div className="grid-12">
         {/* Indeks Dimensi */}
         <div className="card-ews">
           <div className="flex items-center justify-between mb-2.5">
@@ -175,84 +183,117 @@ export function Kamtibmas({ openModal }: KamtibmasProps) {
               onChange={(e) => setDimProv(e.target.value)}
             >
               <option value="nasional">Nasional</option>
-              <option value="jatim">Jawa Timur</option>
-              <option value="dki">DKI Jakarta</option>
-              <option value="sulteng">Sulawesi Tengah</option>
-              <option value="jabar">Jawa Barat</option>
+              <option value="jawa timur">Jawa Timur</option>
+              <option value="dki jakarta">DKI Jakarta</option>
+              <option value="sulawesi tengah">Sulawesi Tengah</option>
+              <option value="jawa barat">Jawa Barat</option>
             </select>
           </div>
           
-          <div className="space-y-2">
-            {dimensiData.map((item) => (
-              <div key={item.n} className="flex items-center gap-2">
-                <span className="font-rajdhani text-xs text-[var(--ts)] w-[110px] flex-shrink-0">{item.n}</span>
-                <div className="progress-bar flex-1">
-                  <div 
-                    className="progress-fill" 
-                    style={{ width: `${item.v}%`, background: item.c }}
-                  />
-                </div>
-                <span 
-                  className="font-orbitron text-[11px] font-bold w-6 text-right"
-                  style={{ 
-                    color: item.v >= 70 ? 'var(--cr)' : item.v >= 50 ? 'var(--cy)' : 'var(--cg)' 
-                  }}
+          <div className="h-[280px] relative mt-2">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={dimensiData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={85}
+                  outerRadius={115}
+                  paddingAngle={5}
+                  dataKey="v"
+                  nameKey="n"
+                  stroke="none"
+                  animationDuration={1500}
                 >
-                  {item.v}
-                </span>
+                  {dimensiData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.c} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ 
+                    background: 'rgba(2, 12, 24, 0.95)', 
+                    border: '1px solid var(--border)',
+                    borderRadius: '4px',
+                    fontSize: '11px',
+                    fontFamily: 'Share Tech Mono, monospace'
+                  }}
+                  itemStyle={{ color: 'var(--tp)' }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+            
+            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pb-2">
+              <span className="font-rajdhani text-[10px] text-[var(--td)] uppercase tracking-[0.2em] font-bold">Composite</span>
+              <span className="font-orbitron text-4xl font-black text-[var(--tp)] leading-none my-1">
+                {Math.round(dimensiData.reduce((acc, curr) => acc + curr.v, 0) / dimensiData.length)}
+              </span>
+              <span className="font-mono-tech text-[9px] text-[var(--ts)] opacity-50 uppercase tracking-widest">Aggregate Score</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 mt-4 px-1">
+            {dimensiData.map((item) => (
+              <div key={item.n} className="flex items-center gap-2 group cursor-pointer">
+                <div className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_currentColor]" style={{ background: item.c, color: item.c }} />
+                <span className="font-rajdhani text-[11px] text-[var(--ts)] uppercase group-hover:text-[var(--tp)] transition-colors">{item.n}</span>
+                <span className="font-mono-tech text-[10px] text-[var(--tp)] ml-auto opacity-70">{item.v}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Peta Kamtibmas */}
         <div className="card-ews">
-          <div className="flex items-center justify-between mb-2.5">
-            <span className="font-orbitron text-[8.5px] font-semibold tracking-[0.14em] uppercase text-[var(--ts)] flex items-center gap-1">
-              <MapPin className="w-3 h-3" />
-              Status Per-Wilayah — Klik untuk Detail
+          <div className="flex items-center justify-between mb-3 px-1">
+            <span className="font-orbitron text-[9px] font-bold tracking-[0.2em] uppercase text-[var(--ts)] flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5 text-[var(--c)]" />
+              STATUS KAMTIBMAS PER-WILAYAH
             </span>
-            <span className="badge badge-live">PETA KAMTIBMAS</span>
+            <div className="flex items-center gap-2">
+              <span className="font-mono-tech text-[8px] text-[var(--td)] animate-pulse">● LIVE SATELLITE</span>
+              <span className="badge badge-live">TACTICAL MAP</span>
+            </div>
           </div>
           
-          <div className="grid grid-cols-6 gap-1">
-            {PROVINSI.map((prov) => {
-              const statusColors = {
-                kritis: 'rgba(255,45,85,.18)',
-                siaga: 'rgba(255,214,0,.12)',
-                normal: 'rgba(0,255,157,.07)'
-              };
-              const borderColors = {
-                kritis: 'rgba(255,45,85,.4)',
-                siaga: 'rgba(255,214,0,.3)',
-                normal: 'rgba(0,255,157,.2)'
-              };
-              const textColors = {
-                kritis: 'var(--cr)',
-                siaga: 'var(--cy)',
-                normal: 'var(--cg)'
-              };
-              
-              return (
-                <div
-                  key={prov.n}
-                  className="p-1 text-center rounded cursor-pointer transition-all hover:scale-105"
-                  style={{
-                    background: statusColors[prov.s],
-                    border: `1px solid ${borderColors[prov.s]}`
-                  }}
-                  onClick={() => handleKamProvClick(prov)}
-                  title={`${prov.n} — ${prov.s.toUpperCase()}`}
-                >
-                  <div 
-                    className="font-mono-tech text-[7px]"
-                    style={{ color: textColors[prov.s] }}
-                  >
-                    {prov.n}
+          <div className="relative group">
+            {/* HUD Corner Decorations */}
+            <div className="absolute -top-1 -left-1 w-2 h-2 border-l border-t border-[var(--c)] opacity-40" />
+            <div className="absolute -top-1 -right-1 w-2 h-2 border-r border-t border-[var(--c)] opacity-40" />
+            <div className="absolute -bottom-1 -left-1 w-2 h-2 border-l border-b border-[var(--c)] opacity-40" />
+            <div className="absolute -bottom-1 -right-1 w-2 h-2 border-r border-b border-[var(--c)] opacity-40" />
+            
+            <div className="bg-[var(--bg-card2)] border border-[rgba(0,238,255,0.1)] rounded overflow-hidden">
+              <div className="flex items-center justify-between px-3.5 py-2 bg-[rgba(0,238,255,0.03)] border-b border-[rgba(0,238,255,0.05)]">
+                <div className="font-mono-tech text-[8.5px] text-[var(--ts)] tracking-[0.1em] uppercase">
+                  GEO-SPATIAL INTELLIGENCE · IDN_UNIT_01 · MONITORING
+                </div>
+                <div className="font-mono-tech text-[8.5px] text-[var(--td)]">
+                  SCANNING... 100%
+                </div>
+              </div>
+
+              <div className="relative h-[410px]">
+                <IndonesiaMap onProvClick={handleKamProvClick} />
+                
+                {/* Legend Overlay - Positioned for Minimal Obstruction */}
+                <div className="absolute bottom-5 left-5 z-[1000] p-3 bg-[rgba(2,12,24,0.9)] border border-[var(--border2)] rounded backdrop-blur-md shadow-2xl">
+                  <div className="font-orbitron text-[7.5px] text-[var(--td)] mb-2.5 tracking-[0.2em]">LEGEND STATUS</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2.5 font-rajdhani text-[10.5px] text-[var(--ts)]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--cr)] shadow-[0_0_8px_var(--cr)]" />
+                      KRITIS
+                    </div>
+                    <div className="flex items-center gap-2.5 font-rajdhani text-[10.5px] text-[var(--ts)]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--cy)] shadow-[0_0_8px_var(--cy)]" />
+                      SIAGA
+                    </div>
+                    <div className="flex items-center gap-2.5 font-rajdhani text-[10.5px] text-[var(--ts)]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--cg)] shadow-[0_0_8px_var(--cg)]" />
+                      NORMAL
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

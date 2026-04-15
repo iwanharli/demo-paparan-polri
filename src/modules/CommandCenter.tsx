@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { TrendingUp, AlertTriangle, Activity, MapPin, MessageSquare } from 'lucide-react';
+import { TrendingUp, AlertTriangle, Activity, MapPin, MessageSquare, Share2, Zap } from 'lucide-react';
+import { IndonesiaMap } from '../components/IndonesiaMap';
 import { 
   PROVINSI, 
   PROV_DETAILS, 
@@ -7,7 +8,9 @@ import {
   TREN_LABELS,
   INCIDENTS,
   TICKERS,
-  RISK_METER_DATA
+  RISK_METER_DATA,
+  NARASI_VIRAL,
+  EMOTION_DATA
 } from '../data/dashboardData';
 import { 
   XAxis, 
@@ -268,50 +271,60 @@ export function CommandCenter({ openModal }: CommandCenterProps) {
               34 PROVINSI · INDONESIA · KLIK UNTUK DETAIL KERAWANAN
             </div>
             
-            {/* Map Grid */}
-            <div className="grid grid-cols-8 gap-1">
-              {PROVINSI.map((prov) => (
-                <div
-                  key={prov.n}
-                  className={`map-cell ${prov.s}`}
-                  onClick={() => handleProvClick(prov)}
-                  title={`${prov.n} — ${prov.s.toUpperCase()}`}
-                >
-                  {prov.n}
-                </div>
-              ))}
+            {/* Interactive Leaflet Map */}
+            <div className="mb-2">
+              <IndonesiaMap onProvClick={handleProvClick} />
             </div>
 
-            {/* Legend */}
-            <div className="flex gap-3.5 mt-2 justify-end">
-              <div className="flex items-center gap-1.5 font-rajdhani text-[11px] text-[var(--ts)]">
-                <div className="w-2 h-2 rounded-sm bg-[rgba(255,45,85,.55)]" />
-                KRITIS
+            {/* Legend and Analysis Summary */}
+            <div className="flex items-start justify-between mt-3 px-1 border-t border-[rgba(255,255,255,0.05)] pt-3">
+              <div className="flex-1">
+                {/* <div className="font-orbitron text-[8.5px] text-[var(--td)] mb-2 tracking-[0.1em] uppercase">
+                  Analisis Kerawanan Tertinggi
+                </div>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                  {PROVINSI.filter(p => p.s === 'kritis' || p.n === 'Jawa Timur').slice(0, 4).map(p => (
+                    <div key={p.n} className="flex items-center justify-between border-b border-[rgba(255,255,255,0.03)] pb-1">
+                      <span className="font-rajdhani text-[11px] text-[var(--ts)] uppercase truncate max-w-[80px]">{p.n}</span>
+                      <span className="font-mono-tech text-[10px] text-[var(--cr)] font-bold">
+                        {PROV_DETAILS[p.n]?.score || Math.floor(Math.random() * 20 + 60)}%
+                      </span>
+                    </div>
+                  ))}
+                </div> */}
               </div>
-              <div className="flex items-center gap-1.5 font-rajdhani text-[11px] text-[var(--ts)]">
-                <div className="w-2 h-2 rounded-sm bg-[rgba(255,214,0,.45)]" />
-                SIAGA
-              </div>
-              <div className="flex items-center gap-1.5 font-rajdhani text-[11px] text-[var(--ts)]">
-                <div className="w-2 h-2 rounded-sm bg-[rgba(0,255,157,.3)]" />
-                NORMAL
+
+              <div className="flex gap-3.5 justify-end pt-1">
+                <div className="flex items-center gap-1.5 font-rajdhani text-[11px] text-[var(--ts)]">
+                  <div className="w-2 h-2 rounded-sm bg-[rgba(255,45,85,.55)]" />
+                  KRITIS
+                </div>
+                <div className="flex items-center gap-1.5 font-rajdhani text-[11px] text-[var(--ts)]">
+                  <div className="w-2 h-2 rounded-sm bg-[rgba(255,214,0,.45)]" />
+                  SIAGA
+                </div>
+                <div className="flex items-center gap-1.5 font-rajdhani text-[11px] text-[var(--ts)]">
+                  <div className="w-2 h-2 rounded-sm bg-[rgba(0,255,157,.3)]" />
+                  NORMAL
+                </div>
               </div>
             </div>
           </div>
         </div>
 
+
         {/* Incidents and Sentiment */}
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-2.5 h-full">
           {/* Incident Feed */}
-          <div className="card-ews">
-            <div className="flex items-center justify-between mb-2.5">
+          <div className="card-ews flex-[8] flex flex-col">
+            <div className="flex items-center justify-between mb-2.5 shrink-0">
               <span className="font-orbitron text-[8.5px] font-semibold tracking-[0.14em] uppercase text-[var(--ts)] flex items-center gap-1">
                 <AlertTriangle className="w-3 h-3" />
                 Insiden Terkini
               </span>
               <span className="badge badge-live">LIVE</span>
             </div>
-            <div className="max-h-[180px] overflow-y-auto scrollbar-thin">
+            <div className="flex-1 overflow-y-auto scrollbar-thin pr-1 lg:max-h-[40vh]">
               {INCIDENTS.map((incident, i) => (
                 <div key={i} className="incident-item">
                   <div 
@@ -333,10 +346,10 @@ export function CommandCenter({ openModal }: CommandCenterProps) {
 
           {/* Sentiment */}
           <div 
-            className="card-ews clickable"
+            className="card-ews clickable flex-[2] flex flex-col"
             onClick={openSentimentDetail}
           >
-            <div className="flex items-center justify-between mb-2.5">
+            <div className="flex items-center justify-between mb-2.5 shrink-0">
               <span className="font-orbitron text-[8.5px] font-semibold tracking-[0.14em] uppercase text-[var(--ts)] flex items-center gap-1">
                 <MessageSquare className="w-3 h-3" />
                 Sentimen Publik — Klik untuk Keyword Detail
@@ -344,7 +357,8 @@ export function CommandCenter({ openModal }: CommandCenterProps) {
               <span className="badge badge-info">SOSMED</span>
             </div>
             
-            <div className="sentiment-bar">
+            <div className="flex-1 flex flex-col justify-center">
+              <div className="sentiment-bar">
               <div className="sent-pos" style={{ width: '35%' }} />
               <div className="sent-net" style={{ width: '27%' }} />
               <div className="sent-neg" style={{ width: '38%' }} />
@@ -358,6 +372,7 @@ export function CommandCenter({ openModal }: CommandCenterProps) {
           </div>
         </div>
       </div>
+    </div>
 
       {/* Divider */}
       <div className="divider-ews">
