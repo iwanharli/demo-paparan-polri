@@ -1,5 +1,5 @@
 import { MapContainer, GeoJSON, ZoomControl } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
+import type { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import geoData from '../lib/assets/indonesia.json';
 import { PROVINSI } from '../data/dashboardData';
