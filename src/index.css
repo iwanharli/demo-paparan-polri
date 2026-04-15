@@ -1,0 +1,757 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── FONTS ── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 50% 3%;
+    --foreground: 210 40% 95%;
+    --card: 210 50% 5%;
+    --card-foreground: 210 40% 95%;
+    --popover: 210 50% 5%;
+    --popover-foreground: 210 40% 95%;
+    --primary: 187 100% 50%;
+    --primary-foreground: 210 50% 3%;
+    --secondary: 210 40% 15%;
+    --secondary-foreground: 210 40% 95%;
+    --muted: 210 40% 15%;
+    --muted-foreground: 210 30% 60%;
+    --accent: 187 100% 50%;
+    --accent-foreground: 210 50% 3%;
+    --destructive: 350 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 187 100% 50%;
+    --input: 210 40% 15%;
+    --ring: 187 100% 50%;
+    --radius: 0.5rem;
+    
+    /* Custom EWS Variables */
+    --bg: #020c18;
+    --bg-card: rgba(3, 16, 34, 0.95);
+    --bg-card2: rgba(0, 28, 58, 0.7);
+    --c: #00eeff;
+    --cb: #0a84ff;
+    --cg: #00ff9d;
+    --cy: #ffd600;
+    --cr: #ff2d55;
+    --co: #ff6b00;
+    --tp: #e8f4ff;
+    --ts: #6fa8cc;
+    --td: #2e5c7a;
+    --border-custom: rgba(0, 238, 255, 0.18);
+    --border2: rgba(0, 200, 255, 0.08);
+    --gcyan: 0 0 18px rgba(0, 238, 255, 0.4), 0 0 36px rgba(0, 238, 255, 0.12);
+    --gred: 0 0 18px rgba(255, 45, 85, 0.45), 0 0 36px rgba(255, 45, 85, 0.15);
+    --gg: 0 0 18px rgba(0, 255, 157, 0.35), 0 0 36px rgba(0, 255, 157, 0.12);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--tp);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at 8% 15%, rgba(0, 80, 255, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 92% 80%, rgba(0, 238, 255, 0.05) 0%, transparent 50%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 238, 255, 0.012) 2px, rgba(0, 238, 255, 0.012) 4px);
+    pointer-events: none;
+    z-index: 1000;
+  }
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 238, 255, 0.2);
+  border-radius: 2px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes pulseAnim {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.6; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-pulse-glow {
+  animation: pulseAnim 1.5s infinite;
+}
+
+.animate-blink {
+  animation: blink 2s infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.28s ease;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.35s ease;
+}
+
+/* ── UTILITY CLASSES ── */
+.font-orbitron {
+  font-family: 'Orbitron', monospace;
+}
+
+.font-rajdhani {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* ── CARD STYLES ── */
+.card-ews {
+  background: var(--bg-card);
+  border: 1px solid var(--border2);
+  border-radius: 5px;
+  padding: 13px 15px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.card-ews::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--c), transparent);
+  opacity: 0.45;
+}
+
+.card-ews.cr::before {
+  background: linear-gradient(90deg, transparent, var(--cr), transparent);
+}
+
+.card-ews.cg::before {
+  background: linear-gradient(90deg, transparent, var(--cg), transparent);
+}
+
+.card-ews.cy::before {
+  background: linear-gradient(90deg, transparent, var(--cy), transparent);
+}
+
+.card-ews.co::before {
+  background: linear-gradient(90deg, transparent, var(--co), transparent);
+}
+
+.card-ews:hover {
+  border-color: rgba(0, 238, 255, 0.28);
+}
+
+.card-ews.clickable {
+  cursor: pointer;
+}
+
+.card-ews.clickable:hover {
+  border-color: rgba(0, 238, 255, 0.5);
+  box-shadow: 0 0 16px rgba(0, 238, 255, 0.08);
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  letter-spacing: 0.07em;
+}
+
+.badge-live {
+  background: rgba(0, 255, 157, 0.1);
+  color: var(--cg);
+  border: 1px solid rgba(0, 255, 157, 0.28);
+}
+
+.badge-warning {
+  background: rgba(255, 214, 0, 0.1);
+  color: var(--cy);
+  border: 1px solid rgba(255, 214, 0, 0.28);
+}
+
+.badge-alert {
+  background: rgba(255, 45, 85, 0.1);
+  color: var(--cr);
+  border: 1px solid rgba(255, 45, 85, 0.3);
+  animation: blink 2s infinite;
+}
+
+.badge-info {
+  background: rgba(0, 238, 255, 0.07);
+  color: var(--c);
+  border: 1px solid rgba(0, 238, 255, 0.22);
+}
+
+/* ── STATUS TAGS ── */
+.tag-kritis {
+  background: rgba(255, 45, 85, 0.14);
+  color: var(--cr);
+  border: 1px solid rgba(255, 45, 85, 0.38);
+}
+
+.tag-siaga {
+  background: rgba(255, 214, 0, 0.1);
+  color: var(--cy);
+  border: 1px solid rgba(255, 214, 0, 0.32);
+}
+
+.tag-normal {
+  background: rgba(0, 255, 157, 0.09);
+  color: var(--cg);
+  border: 1px solid rgba(0, 255, 157, 0.28);
+}
+
+.tag-waspada {
+  background: rgba(255, 107, 0, 0.1);
+  color: var(--co);
+  border: 1px solid rgba(255, 107, 0, 0.32);
+}
+
+.tag-monitor {
+  background: rgba(10, 132, 255, 0.1);
+  color: var(--cb);
+  border: 1px solid rgba(10, 132, 255, 0.32);
+}
+
+/* ── MAP CELL STYLES ── */
+.map-cell {
+  height: 26px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7.5px;
+  transition: transform 0.15s, filter 0.15s;
+  position: relative;
+}
+
+.map-cell:hover {
+  transform: scale(1.12);
+  z-index: 10;
+  filter: brightness(1.5);
+}
+
+.map-cell.kritis {
+  background: rgba(255, 45, 85, 0.45);
+  border: 1px solid rgba(255, 45, 85, 0.65);
+  color: rgba(255, 200, 200, 0.8);
+}
+
+.map-cell.siaga {
+  background: rgba(255, 214, 0, 0.35);
+  border: 1px solid rgba(255, 214, 0, 0.55);
+  color: rgba(255, 240, 180, 0.8);
+}
+
+.map-cell.normal {
+  background: rgba(0, 255, 157, 0.2);
+  border: 1px solid rgba(0, 255, 157, 0.38);
+  color: rgba(180, 255, 220, 0.8);
+}
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  height: 7px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+/* ── INCIDENT ITEM ── */
+.incident-item {
+  display: flex;
+  gap: 9px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border2);
+  animation: slideIn 0.35s ease;
+}
+
+.incident-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+/* ── SELECT STYLES ── */
+.select-ews {
+  background: rgba(0, 28, 58, 0.8);
+  border: 1px solid var(--border-custom);
+  color: var(--tp);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.select-ews:hover,
+.select-ews:focus {
+  border-color: rgba(0, 238, 255, 0.4);
+}
+
+/* ── TICKER ── */
+.ticker-ews {
+  background: rgba(255, 45, 85, 0.07);
+  border: 1px solid rgba(255, 45, 85, 0.22);
+  border-radius: 4px;
+  padding: 7px 13px;
+  overflow: hidden;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.ticker-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--cr);
+  background: rgba(255, 45, 85, 0.14);
+  border: 1px solid rgba(255, 45, 85, 0.38);
+  padding: 2px 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  animation: blink 1.5s infinite;
+}
+
+/* ── DIVIDER ── */
+.divider-ews {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 11px;
+  margin-top: 3px;
+}
+
+.divider-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--c);
+  white-space: nowrap;
+  text-shadow: 0 0 8px rgba(0, 238, 255, 0.5);
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c), transparent);
+  opacity: 0.35;
+}
+
+/* ── GAUGE STYLES ── */
+.gauge-svg {
+  transform: rotate(-90deg);
+}
+
+.gauge-text {
+  font-family: 'Orbitron', monospace;
+  font-weight: 800;
+  fill: var(--tp);
+}
+
+.gauge-sub {
+  font-family: 'Rajdhani', sans-serif;
+  fill: var(--ts);
+  font-size: 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── ISU TAGS ── */
+.isu-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9.5px;
+  padding: 3px 9px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.isu-tag:hover {
+  transform: scale(1.06);
+}
+
+.isu-high {
+  background: rgba(255, 45, 85, 0.1);
+  color: var(--cr);
+  border: 1px solid rgba(255, 45, 85, 0.32);
+}
+
+.isu-med {
+  background: rgba(255, 214, 0, 0.09);
+  color: var(--cy);
+  border: 1px solid rgba(255, 214, 0, 0.28);
+}
+
+.isu-low {
+  background: rgba(0, 238, 255, 0.06);
+  color: var(--c);
+  border: 1px solid rgba(0, 238, 255, 0.18);
+}
+
+/* ── TABLE STYLES ── */
+.table-ews {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-ews th {
+  font-family: 'Orbitron', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  color: var(--td);
+  text-align: left;
+  padding: 6px 7px;
+  border-bottom: 1px solid var(--border2);
+}
+
+.table-ews td {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tp);
+  padding: 6px 7px;
+  border-bottom: 1px solid rgba(0, 200, 255, 0.04);
+}
+
+.table-ews tr:hover td {
+  background: rgba(0, 238, 255, 0.025);
+}
+
+/* ── PBOX ── */
+.pbox {
+  background: rgba(0, 28, 58, 0.6);
+  border: 1px solid rgba(0, 238, 255, 0.18);
+  border-left: 3px solid var(--c);
+  border-radius: 4px;
+  padding: 13px 15px;
+  margin-bottom: 9px;
+}
+
+.ptag {
+  font-family: 'Orbitron', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  color: var(--c);
+  margin-bottom: 7px;
+  display: block;
+}
+
+.ptxt {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--tp);
+  line-height: 1.6;
+}
+
+/* ── REKOM ITEM ── */
+.rekom-item {
+  display: flex;
+  gap: 9px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border2);
+}
+
+.rekom-item:last-child {
+  border-bottom: none;
+}
+
+.rekom-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c);
+  flex-shrink: 0;
+  width: 18px;
+  opacity: 0.65;
+}
+
+.rekom-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  color: var(--ts);
+  line-height: 1.5;
+}
+
+/* ── EMOTION GRID ── */
+.emotion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.emotion-item {
+  text-align: center;
+  padding: 9px 7px;
+  background: rgba(0, 28, 58, 0.5);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.emotion-item:hover {
+  border-color: var(--border-custom);
+  background: rgba(0, 238, 255, 0.04);
+}
+
+.emotion-icon {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+
+.emotion-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8.5px;
+  color: var(--ts);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.emotion-pct {
+  font-family: 'Orbitron', monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ── SENTIMENT BAR ── */
+.sentiment-bar {
+  height: 16px;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+
+.sent-pos {
+  background: rgba(0, 255, 157, 0.55);
+}
+
+.sent-net {
+  background: rgba(0, 238, 255, 0.28);
+}
+
+.sent-neg {
+  background: rgba(255, 45, 85, 0.48);
+}
+
+/* ── NAV TAB ── */
+.nav-tab {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--td);
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  position: relative;
+  background: transparent;
+}
+
+.nav-tab:hover {
+  color: var(--tp);
+  border-color: var(--border-custom);
+  background: rgba(0, 238, 255, 0.04);
+}
+
+.nav-tab.active {
+  color: var(--c);
+  border-color: rgba(0, 238, 255, 0.4);
+  background: rgba(0, 238, 255, 0.07);
+  box-shadow: 0 0 14px rgba(0, 238, 255, 0.12);
+}
+
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 2px;
+  background: var(--c);
+  box-shadow: var(--gcyan);
+}
+
+/* ── SCENARIO ITEM ── */
+.scenario-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border2);
+}
+
+.scenario-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.scenario-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+/* ── KERENTANAN CARD ── */
+.kerentanan-card {
+  padding: 11px;
+  background: rgba(0, 18, 42, 0.7);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 7px;
+}
+
+.kerentanan-card:hover {
+  border-color: rgba(0, 238, 255, 0.35);
+}
+
+/* ── FOOTER ── */
+.footer-ews {
+  text-align: center;
+  padding: 11px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--td);
+  letter-spacing: 0.15em;
+  border-top: 1px solid var(--border2);
+  margin-top: 18px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .grid-5,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-21,
+  .grid-12,
+  .grid-32 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── GRID SYSTEM ── */
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.grid-21 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.grid-32 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 11px;
+  margin-bottom: 13px;
+}
